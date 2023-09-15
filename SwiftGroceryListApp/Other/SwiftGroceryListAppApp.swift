@@ -6,14 +6,18 @@
 //
 
 import SwiftUI
+import FirebaseCore
 
 @main
 struct SwiftGroceryListAppApp: App {
+    init () {
+        FirebaseApp.configure()
+    }
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
