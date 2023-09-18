@@ -6,19 +6,32 @@
 //
 
 import SwiftUI
+import FirebaseFirestoreSwift
 
 struct GroceryListView: View {
-    @StateObject var viewModel = GroceryListViewViewModel()
-    
-    private let userId: String
-    
+    @StateObject var viewModel: GroceryListViewViewModel
+    @FirestoreQuery var items: [GroceryListItem]
+        
     init(userId: String) {
-        self.userId = userId
+        // db setup: users/<id>/grocery/<entries>
+        self._items = FirestoreQuery(collectionPath: "users/\(userId)/grocery")
+        self._viewModel = StateObject(wrappedValue: GroceryListViewViewModel(userId: userId))
     }
     
     var body: some View {
         NavigationView{
             VStack {
+                List(items) { item in
+//                    Text(item.title)
+                    GroceryItemView(item: item)
+                        .swipeActions {
+                            Button("Delete") {
+                                viewModel.delete(id: item.id)
+                            }
+                            .tint(.red)
+                        }
+                }
+                .listStyle(PlainListStyle())
                 
             }
             .navigationTitle("Grocery List")
@@ -39,6 +52,6 @@ struct GroceryListView: View {
 
 struct GroceryListView_Previews: PreviewProvider {
     static var previews: some View {
-        GroceryListView(userId: "")
+        GroceryListView(userId: "1D7Q0zQFIHN4e6F8pMq2otHwKAl2")
     }
 }

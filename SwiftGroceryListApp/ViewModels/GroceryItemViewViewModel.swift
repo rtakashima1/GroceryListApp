@@ -9,4 +9,7 @@ import Foundation
 class GroceryItemViewViewModel: ObservableObject {
     init() {}
     
+    func toggleIsDone(item: GroceryListItem) {
+        
+    }
 }
