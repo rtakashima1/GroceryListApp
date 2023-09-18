@@ -31,7 +31,7 @@ class RegisterViewViewModel: ObservableObject {
     private func insertUserRecord(id: String){
         let newUser = User(id: id,
                            name: name,
-                           email: password,
+                           email: email,
                            joined: Date().timeIntervalSince1970)
         
         let db = Firestore.firestore()
