@@ -17,7 +17,6 @@ class GroceryListViewViewModel: ObservableObject {
         self.userId = userId
     }
     
-    
     /// Delete Grocery List Item
     /// - Parameter id: Item Id to delete
     ///
