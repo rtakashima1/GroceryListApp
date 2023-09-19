@@ -17,7 +17,7 @@ struct ProfileView: View {
                     Image(systemName: "person.circle")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .foregroundColor(.blue)
+                        .foregroundColor(.black)
                         .frame(width: 125, height: 125)
                     // Info: name, email
                     VStack {
@@ -42,11 +42,20 @@ struct ProfileView: View {
                     Button("Log Out"){
                         viewModel.logOut()
                     }
+                    .buttonStyle(.bordered)
+                    .tint(.black)
                     .padding(100)
                 } else {
                     Text("Loading Profile ... ")
                 }
             }
+            .background(
+            Image("Untitled design")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .overlay(Color.white.opacity(0.65))
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+            )
             .navigationTitle("Profile")
         }
         .navigationViewStyle(StackNavigationViewStyle())

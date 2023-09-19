@@ -11,11 +11,16 @@ import FirebaseFirestoreSwift
 struct GroceryListView: View {
     @StateObject var viewModel: GroceryListViewViewModel
     @FirestoreQuery var items: [GroceryListItem]
-        
+    
+    var gList = [String]()
+    
     init(userId: String) {
         // db setup: users/<id>/grocery/<entries>
         self._items = FirestoreQuery(collectionPath: "users/\(userId)/grocery")
         self._viewModel = StateObject(wrappedValue: GroceryListViewViewModel(userId: userId))
+        
+        // transparent background
+//        UITableView.appearance().backgroundColor = UIColor.clear
     }
     
     var body: some View {
@@ -30,16 +35,28 @@ struct GroceryListView: View {
                             }
                             .tint(.red)
                         }
-                }
-                .listStyle(PlainListStyle())
+                        .listRowBackground(Color.white.opacity(0.7))
+                }.scrollContentBackground(.hidden)
+                
+//                .listStyle(PlainListStyle())
+//                .listStyle(InsetGroupedListStyle())
                 
             }
+            .padding()
+            .background(
+            Image("Untitled design")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .overlay(Color.white.opacity(0.65))
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+            )
             .navigationTitle("Grocery List")
             .toolbar{
                 Button {
                     viewModel.showingNewItemView = true
                 } label: {
                     Image(systemName: "plus")
+                        .foregroundColor(.black)
                 }
             }
             .sheet(isPresented: $viewModel.showingNewItemView){

@@ -10,6 +10,7 @@
 		5F7432312AB8AC2200753CBD /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5F7432302AB8AC2200753CBD /* FirebaseAuth */; };
 		5F7432332AB8AC2600753CBD /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5F7432322AB8AC2600753CBD /* FirebaseFirestore */; };
 		5F7432352AB8AC2D00753CBD /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5F7432342AB8AC2D00753CBD /* FirebaseFirestoreSwift */; };
+		5F7432372AB9EAA600753CBD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F7432362AB9EAA600753CBD /* Launch Screen.storyboard */; };
 		5FF87F962AB3AD0D00981C0D /* SwiftGroceryListAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF87F952AB3AD0D00981C0D /* SwiftGroceryListAppApp.swift */; };
 		5FF87F982AB3AD0D00981C0D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF87F972AB3AD0D00981C0D /* MainView.swift */; };
 		5FF87F9A2AB3AD0D00981C0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF87F992AB3AD0D00981C0D /* Assets.xcassets */; };
@@ -38,10 +39,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F7432362AB9EAA600753CBD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		5FF87F922AB3AD0D00981C0D /* SwiftGroceryListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftGroceryListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF87F952AB3AD0D00981C0D /* SwiftGroceryListAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGroceryListAppApp.swift; sourceTree = "<group>"; };
 		5FF87F972AB3AD0D00981C0D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		5FF87F992AB3AD0D00981C0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5FF87F992AB3AD0D00981C0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = SwiftGroceryListApp/Other/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		5FF87F9C2AB3AD0D00981C0D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5FF87F9E2AB3AD0D00981C0D /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		5FF87FA12AB3AD0D00981C0D /* SwiftGroceryListApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwiftGroceryListApp.xcdatamodel; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				5FF87F952AB3AD0D00981C0D /* SwiftGroceryListAppApp.swift */,
 				5FF87F992AB3AD0D00981C0D /* Assets.xcassets */,
 				5FF87FD82AB4EEF800981C0D /* Extensions.swift */,
+				5F7432362AB9EAA600753CBD /* Launch Screen.storyboard */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 			files = (
 				5FF87F9D2AB3AD0D00981C0D /* Preview Assets.xcassets in Resources */,
 				5FF87F9A2AB3AD0D00981C0D /* Assets.xcassets in Resources */,
+				5F7432372AB9EAA600753CBD /* Launch Screen.storyboard in Resources */,
 				5FF87FB02AB4A28A00981C0D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,6 +406,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftGroceryListApp/Preview Content\"";
@@ -412,6 +417,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -431,6 +437,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftGroceryListApp/Preview Content\"";
@@ -441,6 +448,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

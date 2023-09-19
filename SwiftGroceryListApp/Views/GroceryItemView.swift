@@ -15,8 +15,12 @@ struct GroceryItemView: View {
         HStack {
             VStack(alignment: .leading) {
                 Text(item.title)
+                    .font(
+                        .custom("HelveticaNeue_Bold", fixedSize: 18))
                 Text(item.category)
-                    .font(.footnote)
+                    .font(
+                        .custom("Montserrat-Light", fixedSize: 12))
+//                    .font(.footnote)
                     .foregroundColor(.secondary)
             }
             Spacer()
@@ -26,7 +30,7 @@ struct GroceryItemView: View {
             } label: {
                 Image(systemName: item.isDone ?
                       "checkmark.circle.fill" : "circle")
-                .foregroundColor(.blue)
+                .foregroundColor(.black)
             }
             
         }

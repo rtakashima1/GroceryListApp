@@ -16,7 +16,7 @@ struct NewItemView: View {
     var body: some View {
         VStack{
             Text("New Item")
-                .font(.system(size: 32))
+                .font(.system(size: 36))
                 .bold()
                 .padding(.top, 25)
             Form {
@@ -32,7 +32,7 @@ struct NewItemView: View {
                 // button
                 GLButton(
                      title: "Save",
-                    background: .pink){
+                    background: .black){
                         if viewModel.canSave {
                             viewModel.save()
                             newItemPresented = false
@@ -41,10 +41,19 @@ struct NewItemView: View {
                         }
                 }
             }
+            .padding()
             .alert(isPresented: $viewModel.showAlert){
                 Alert(title: Text("Error"), message: Text("Please fill in all fields"))
             }
         }
+        .scrollContentBackground(.hidden)
+        .background(
+        Image("Untitled design")
+            .resizable()
+            .edgesIgnoringSafeArea(.all)
+            .overlay(Color.white.opacity(0.65))
+            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        )
     }
 }
 
