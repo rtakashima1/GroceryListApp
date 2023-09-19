@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 class NewItemViewViewModel: ObservableObject {
     @Published var title = ""
+    @Published var category = ""
     @Published var showAlert = false
     
     init() {}
@@ -28,6 +29,7 @@ class NewItemViewViewModel: ObservableObject {
         let newItem = GroceryListItem (
             id: newId,
             title: title,
+            category: category,
             createdDate: Date().timeIntervalSince1970,
             isDone: false)
         

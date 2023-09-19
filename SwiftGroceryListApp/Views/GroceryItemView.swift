@@ -15,6 +15,9 @@ struct GroceryItemView: View {
         HStack {
             VStack(alignment: .leading) {
                 Text(item.title)
+                Text(item.category)
+                    .font(.footnote)
+                    .foregroundColor(.secondary)
             }
             Spacer()
             
@@ -32,6 +35,6 @@ struct GroceryItemView: View {
 
 struct GroceryItemView_Previews: PreviewProvider {
     static var previews: some View {
-        GroceryItemView(item: .init(id: "123", title: "Oat", createdDate: Date().timeIntervalSince1970, isDone: false))
+        GroceryItemView(item: .init(id: "123", title: "Oat",category: "Dairy/Egg", createdDate: Date().timeIntervalSince1970, isDone: false))
     }
 }

@@ -11,6 +11,8 @@ struct NewItemView: View {
     @StateObject var viewModel = NewItemViewViewModel()
     @Binding var newItemPresented: Bool
     
+    let themes = ["Veggie/Fruits", "Protein", "Dairy/Egg", "Other"]
+    
     var body: some View {
         VStack{
             Text("New Item")
@@ -19,7 +21,14 @@ struct NewItemView: View {
                 .padding(.top, 25)
             Form {
                 // title
-                TextField("Title", text: $viewModel.title)
+                TextField("Item Title", text: $viewModel.title)
+                TextField("Category", text: $viewModel.category)
+                Picker("Choose Category", selection: $viewModel.category){
+                    ForEach(themes, id: \.self){
+                        Text($0)
+                    }
+                }
+                .pickerStyle(.wheel)
                 // button
                 GLButton(
                      title: "Save",

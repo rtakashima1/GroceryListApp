@@ -10,6 +10,7 @@ import Foundation
 struct GroceryListItem: Codable, Identifiable {
     let id: String
     let title: String
+    let category: String
     let createdDate: TimeInterval
     var isDone: Bool
     
