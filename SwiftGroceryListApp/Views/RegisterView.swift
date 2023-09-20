@@ -31,15 +31,23 @@ struct RegisterView: View {
                 
                 GLButton(
                     title: "Create an Account",
-                    background: .green
+                    background: .pink
                 ){
                     viewModel.register()
                 }
             }
-            .offset(y: -50)
+            .scrollContentBackground(.hidden)
             
-            Spacer()
+            .offset(y: -50)
         }
+        .background(
+        Image("Untitled design")
+            .resizable()
+            .edgesIgnoringSafeArea(.all)
+            .overlay(Color.white.opacity(0.65))
+            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        )
+        
     }
 }
 

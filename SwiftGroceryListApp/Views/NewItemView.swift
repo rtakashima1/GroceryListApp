@@ -12,6 +12,7 @@ struct NewItemView: View {
     @Binding var newItemPresented: Bool
     
     let themes = ["Veggie/Fruits", "Protein", "Dairy/Egg", "Other"]
+//    let themeColors = [".green", ".red", ".yellow",".purple"]
     
     var body: some View {
         VStack{

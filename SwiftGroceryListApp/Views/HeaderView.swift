@@ -16,21 +16,18 @@ struct HeaderView: View {
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 0)
-                .foregroundColor(background)
-                .rotationEffect(Angle(degrees: angle))
-
             VStack {
                 Text(title)
-                    .foregroundColor(.white)
-                    .font(.system(size: 50))
+                    .foregroundColor(.black)
+//                    .font(.system(size: 50))
+                    .font(.custom("Helvetica-Bold", size: 48))
                     .bold()
             }
             .padding(.top, 30)
         }
-        .frame(width: UIScreen.main.bounds.width * 3, height: 300)
-        .offset(y:-100)
+        .frame(width: UIScreen.main.bounds.width * 3, height: UIScreen.main.bounds.height / 3)
     }
+    
 }
 
 struct HeaderView_Previews: PreviewProvider {

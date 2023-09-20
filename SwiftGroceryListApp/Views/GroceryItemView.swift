@@ -16,10 +16,10 @@ struct GroceryItemView: View {
             VStack(alignment: .leading) {
                 Text(item.title)
                     .font(
-                        .custom("HelveticaNeue_Bold", fixedSize: 18))
+                        .custom("Helvetica-Bold", fixedSize: 18))
                 Text(item.category)
                     .font(
-                        .custom("Montserrat-Light", fixedSize: 12))
+                        .custom("Arial", fixedSize: 12))
 //                    .font(.footnote)
                     .foregroundColor(.secondary)
             }
@@ -30,6 +30,8 @@ struct GroceryItemView: View {
             } label: {
                 Image(systemName: item.isDone ?
                       "checkmark.circle.fill" : "circle")
+                .resizable()
+                .frame(width: 20, height: 20)
                 .foregroundColor(.black)
             }
             

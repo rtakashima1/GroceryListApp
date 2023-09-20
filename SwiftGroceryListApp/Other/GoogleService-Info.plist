@@ -26,5 +26,11 @@
 	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:908173570429:ios:d61536cbb375c675e55c14</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Rubik-Italic-VariableFont_wght.ttf</string>
+		<string>Rubik-VariableFont_wght.ttf</string>
+		<string>RobotoSlab-Black.ttf</string>
+	</array>
 </dict>
 </plist>

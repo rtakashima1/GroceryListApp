@@ -12,14 +12,12 @@ struct LoginView: View {
 
     
     var body: some View {
+        
         NavigationView {
             VStack{
                 // Header
                 HeaderView(title: "Grocery List", angle: 15, background: .pink
                 )
-                
-                
-                // Login Form
                 Form {
                     if !viewModel.errorMessage .isEmpty {
                         Text(viewModel.errorMessage)
@@ -33,10 +31,11 @@ struct LoginView: View {
                         .textFieldStyle(DefaultTextFieldStyle())
                     
                     GLButton(title: "Log in",
-                             background: .blue){
+                             background: .black){
                         viewModel.login()
                     }
                 }
+                .scrollContentBackground(.hidden)
                 
                 // Create Account
                 VStack {
@@ -47,9 +46,18 @@ struct LoginView: View {
                 .padding(.bottom, 50)
                 Spacer()
             }
+            .background(
+            Image("Untitled design")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .overlay(Color.white.opacity(0.65))
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+            )
 
         }
+        
     }
+    
 }
 
 struct LoginView_Previews: PreviewProvider {
