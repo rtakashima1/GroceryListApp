@@ -12,7 +12,6 @@ struct NewItemView: View {
     @Binding var newItemPresented: Bool
     
     let themes = ["Veggie/Fruits", "Protein", "Dairy/Egg", "Other"]
-//    let themeColors = [".green", ".red", ".yellow",".purple"]
     
     var body: some View {
         VStack{
@@ -33,7 +32,7 @@ struct NewItemView: View {
                 // button
                 GLButton(
                      title: "Save",
-                    background: .black){
+                    background: .accentColor){
                         if viewModel.canSave {
                             viewModel.save()
                             newItemPresented = false
@@ -49,11 +48,14 @@ struct NewItemView: View {
         }
         .scrollContentBackground(.hidden)
         .background(
-        Image("Untitled design")
-            .resizable()
-            .edgesIgnoringSafeArea(.all)
-            .overlay(Color.white.opacity(0.65))
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+            
+            Color(red: 243/255, green: 244/255, blue: 231/255)
+            
+//        Image("Untitled design")
+//            .resizable()
+//            .edgesIgnoringSafeArea(.all)
+//            .overlay(Color.white.opacity(0.65))
+//            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         )
     }
 }

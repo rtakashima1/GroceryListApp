@@ -31,7 +31,7 @@ struct RegisterView: View {
                 
                 GLButton(
                     title: "Create an Account",
-                    background: .pink
+                    background: .accentColor
                 ){
                     viewModel.register()
                 }
@@ -41,11 +41,12 @@ struct RegisterView: View {
             .offset(y: -50)
         }
         .background(
-        Image("Untitled design")
-            .resizable()
-            .edgesIgnoringSafeArea(.all)
-            .overlay(Color.white.opacity(0.65))
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+            Color(red: 243/255, green: 244/255, blue: 231/255)
+//        Image("Untitled design")
+//            .resizable()
+//            .edgesIgnoringSafeArea(.all)
+//            .overlay(Color.white.opacity(0.65))
+//            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         )
         
     }

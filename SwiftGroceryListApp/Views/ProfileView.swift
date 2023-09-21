@@ -43,18 +43,23 @@ struct ProfileView: View {
                         viewModel.logOut()
                     }
                     .buttonStyle(.bordered)
-                    .tint(.black)
+                    .tint(.accentColor)
                     .padding(100)
                 } else {
                     Text("Loading Profile ... ")
                 }
             }
             .background(
-            Image("Untitled design")
-                .resizable()
-                .edgesIgnoringSafeArea(.all)
-                .overlay(Color.white.opacity(0.65))
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                
+                Color(red: 243/255, green: 244/255, blue: 231/255)
+                    .edgesIgnoringSafeArea(.all)
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                
+//            Image("Untitled design")
+//                .resizable()
+//                .edgesIgnoringSafeArea(.all)
+//                .overlay(Color.white.opacity(0.65))
+//                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
             )
             .navigationTitle("Profile")
         }

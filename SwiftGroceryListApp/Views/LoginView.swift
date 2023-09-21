@@ -31,7 +31,7 @@ struct LoginView: View {
                         .textFieldStyle(DefaultTextFieldStyle())
                     
                     GLButton(title: "Log in",
-                             background: .black){
+                             background: .accentColor){
                         viewModel.login()
                     }
                 }
@@ -47,11 +47,12 @@ struct LoginView: View {
                 Spacer()
             }
             .background(
-            Image("Untitled design")
-                .resizable()
-                .edgesIgnoringSafeArea(.all)
-                .overlay(Color.white.opacity(0.65))
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                Color(red: 243/255, green: 244/255, blue: 231/255)
+//            Image("Untitled design")
+//                .resizable()
+//                .edgesIgnoringSafeArea(.all)
+//                .overlay(Color.white.opacity(0.65))
+//                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
             )
 
         }

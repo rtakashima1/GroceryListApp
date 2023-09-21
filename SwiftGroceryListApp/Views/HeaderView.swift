@@ -20,7 +20,7 @@ struct HeaderView: View {
                 Text(title)
                     .foregroundColor(.black)
 //                    .font(.system(size: 50))
-                    .font(.custom("Helvetica-Bold", size: 48))
+                    .font(.custom("Galvji", size: 48))
                     .bold()
             }
             .padding(.top, 30)

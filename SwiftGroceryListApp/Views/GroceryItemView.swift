@@ -16,12 +16,13 @@ struct GroceryItemView: View {
             VStack(alignment: .leading) {
                 Text(item.title)
                     .font(
-                        .custom("Helvetica-Bold", fixedSize: 18))
-                Text(item.category)
-                    .font(
-                        .custom("Arial", fixedSize: 12))
-//                    .font(.footnote)
-                    .foregroundColor(.secondary)
+                        .custom("Galvji", fixedSize: 18))
+//                        .custom("Menlo-Bold", fixedSize: 18))
+//                Text(item.category)
+//                    .font(
+//                        .custom("Arial", fixedSize: 12))
+////                    .font(.footnote)
+//                    .foregroundColor(.secondary)
             }
             Spacer()
             
@@ -32,7 +33,7 @@ struct GroceryItemView: View {
                       "checkmark.circle.fill" : "circle")
                 .resizable()
                 .frame(width: 20, height: 20)
-                .foregroundColor(.black)
+                .foregroundColor(.accentColor)
             }
             
         }

@@ -56,27 +56,14 @@ struct GroceryListView: View {
     var body: some View {
         
         NavigationView{
-//            bodyListViewTest
-//                .padding()
-//                .background(
-//                    Image("Untitled design")
-//                        .resizable()
-//                        .edgesIgnoringSafeArea(.all)
-//                        .overlay(Color.white.opacity(0.65))
-//                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-//            )
-            
             bodyListView2
-                .padding()
+//                .padding()
                 .background(
-                    Image("Untitled design")
-                        .resizable()
-                        .edgesIgnoringSafeArea(.all)
-                        .overlay(Color.white.opacity(0.65))
-                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-            )
-            
+                    Color(red: 243/255, green: 244/255, blue: 231/255)
+                )
+        
             .navigationTitle("Grocery List")
+//            .padding()
             
             .toolbar{
                 Button {
@@ -91,59 +78,46 @@ struct GroceryListView: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
-    }
-    
-    
-    
-    var bodyListView: some View {
-        VStack {
-            
-            ForEach(sortedListTest) { item in
-                GroceryItemView(item: item)
-                    .swipeActions {
-                        Button("Delete") {
-                            viewModel.delete(id: item.id)
-                        }
-                        .tint(.red)
-                    }
-                    .listRowBackground(Color.white.opacity(0.7))
-            }
-            .scrollContentBackground(.hidden)
-        }
-    }
-    
-//    var bodyListViewTest: some View {
+    } 
+//
+//
+//
+//    var bodyListView: some View {
 //        VStack {
-//            ForEach(uniqueCategories, id:\.self){ categoryItem in
-//                Section(header: Text(categoryItem)) {
-//                    ForEach(sortedListTest) { item in
-//                        GroceryItemView(item: item)
-//                            .swipeActions {
-//                                Button("Delete") {
-//                                    viewModel.delete(id: item.id)
-//                                }
-//                                .tint(.red)
-//                            }
-//                            .listRowBackground(Color.white.opacity(0.7))
+//
+//            ForEach(sortedListTest) { item in
+//                GroceryItemView(item: item)
+//                    .swipeActions {
+//                        Button("Delete") {
+//                            viewModel.delete(id: item.id)
+//                        }
+//                        .tint(.red)
 //                    }
-//                    .scrollContentBackground(.hidden)
-//                    }
-//                }
+//                    .listRowBackground(Color.white.opacity(0.7))
 //            }
+//            .scrollContentBackground(.hidden)
 //        }
-    
+//    }
     
     var bodyListView2: some View {
         VStack{
             List {
-                ForEach(Array(gDict.keys).sorted(by: <), id: \.self) { category in
+                ForEach(Array(gDict.keys).sorted(by: >), id: \.self) { category in
                     Section(header: Text("\(category)")) {
-                        ForEach(gDict[category]!, id: \.self) { listItem in
-                            GroceryItemView(item: listItem)
+                        ForEach(gDict[category]!, id: \.self) { item in
+                            GroceryItemView(item: item)
+                                .swipeActions {
+                                    Button("Delete") {
+                                        viewModel.delete(id: item.id)
+                                    }
+                                    .tint(.red)
+                                }
+//                                .listRowBackground(Color.white.opacity(0.4))
                         }
                     }
                 }
             }
+            .scrollContentBackground(.hidden)
         }
     }
     

@@ -1,14 +1,14 @@
 //
-//  gItemListViewViewModel.swift
+//  RecipeViewViewModel.swift
 //  SwiftGroceryListApp
 //
-//  Created by Rika Takashima on 15/09/2023.
+//  Created by Rika Takashima on 20/09/2023.
 //
 
 import FirebaseFirestore
 import Foundation
 
-class GroceryListViewViewModel: ObservableObject {
+class RecipeViewViewModel: ObservableObject {
     @Published var showingNewItemView = false
     
     private let userId: String
@@ -36,4 +36,3 @@ class GroceryListViewViewModel: ObservableObject {
             (items).compactMap{$0.category}))
     }
 }
- 
