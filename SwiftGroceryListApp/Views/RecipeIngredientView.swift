@@ -1,14 +1,14 @@
 //
-//  GroceryItemView.swift
+//  RecipeIngredientView.swift
 //  SwiftGroceryListApp
 //
-//  Created by Rika Takashima on 15/09/2023.
+//  Created by Rika Takashima on 21/09/2023.
 //
 
 import SwiftUI
 
-struct GroceryItemView: View {
-    @StateObject var viewModel = GroceryItemViewViewModel()
+struct RecipeIngredientView: View {
+    @StateObject var viewModel = RecipeIngredientViewViewModel()
     let item: GroceryListItem
     
     var body: some View {
@@ -34,7 +34,7 @@ struct GroceryItemView: View {
     }
 }
 
-struct GroceryItemView_Previews: PreviewProvider {
+struct RecipeIngredientsView_Preview: PreviewProvider {
     static var previews: some View {
         GroceryItemView(item: .init(id: "123", title: "Oat",category: "Dairy/Egg", createdDate: Date().timeIntervalSince1970, isDone: false))
     }

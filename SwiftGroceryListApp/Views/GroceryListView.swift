@@ -56,28 +56,27 @@ struct GroceryListView: View {
     var body: some View {
         
         NavigationView{
-            bodyListView2
-//                .padding()
-                .background(
-                    Color(red: 243/255, green: 244/255, blue: 231/255)
-                )
-        
-            .navigationTitle("Grocery List")
-//            .padding()
-            
-            .toolbar{
-                Button {
-                    viewModel.showingNewItemView = true
-                } label: {
-                    Image(systemName: "plus")
-                        .foregroundColor(.black)
+            ZStack{
+                Color("Color")
+                    .edgesIgnoringSafeArea(.all)
+                bodyListView2
+                .navigationTitle("Grocery List")
+                
+                .toolbar{
+                    Button {
+                        viewModel.showingNewItemView = true
+                    } label: {
+                        Image(systemName: "plus")
+                            .foregroundColor(.accentColor)
+                    }
+                }
+                .sheet(isPresented: $viewModel.showingNewItemView){
+                    NewItemView(newItemPresented: $viewModel.showingNewItemView)
                 }
             }
-            .sheet(isPresented: $viewModel.showingNewItemView){
-                NewItemView(newItemPresented: $viewModel.showingNewItemView)
+            .navigationViewStyle(StackNavigationViewStyle())
             }
-        }
-        .navigationViewStyle(StackNavigationViewStyle())
+            
     } 
 //
 //

@@ -16,6 +16,8 @@ class NewRecipeViewViewModel: ObservableObject {
     @Published var ingredientsList = ""
     @Published var showAlert = false
     
+//    var commonGroceryDict = ["Veggies/Fruit": "Apples", "Veggies/Fruit": "Bananas" ]
+    
     init() {}
     
     func save() {
@@ -26,7 +28,7 @@ class NewRecipeViewViewModel: ObservableObject {
         guard let uId = Auth.auth().currentUser?.uid else {
             return
         }
-        // 2. Create model
+        // 2. Create models
         let newId = UUID().uuidString
         let newItem = RecipeListItem (
             id: newId,
@@ -35,8 +37,8 @@ class NewRecipeViewViewModel: ObservableObject {
             ingredients: ingredients,
             ingredientsList: ingredientsList,
             isDone: false)
-        
-        
+
+    
         // Save Model to database as subcollection of current user
         let db = Firestore.firestore()
         

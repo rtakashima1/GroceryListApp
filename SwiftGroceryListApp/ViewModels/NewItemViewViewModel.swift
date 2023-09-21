@@ -33,6 +33,12 @@ class NewItemViewViewModel: ObservableObject {
             createdDate: Date().timeIntervalSince1970,
             isDone: false)
         
+        let newDictItem = IngredientsDictionaryItem(
+            id: newId,
+            title: title,
+            category: category,
+            isDone: false)
+        
         
         // Save Model to database as subcollection of current user
         let db = Firestore.firestore()
@@ -42,6 +48,13 @@ class NewItemViewViewModel: ObservableObject {
             .collection("grocery")
             .document(newId)
             .setData(newItem.asDictionary())
+        
+        // Create an Ingredients Dictionary to database as subcollection of current user
+        db.collection("users")
+            .document(uId)
+            .collection("dictionary")
+            .document(newId)
+            .setData(newDictItem.asDictionary())
     }
     
     var canSave: Bool {

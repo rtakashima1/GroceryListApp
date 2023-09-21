@@ -21,18 +21,26 @@ struct RecipeView: View {
     
     var body: some View {
         NavigationView{
-            VStack{
-                bodyListView
-                Text("Helow")
+            ZStack {
+                Color("Color")
+                    .edgesIgnoringSafeArea(.all)
+                VStack{
+                    bodyListView
+                    Text("Helow")
+                }
             }
+            
             .navigationTitle("Recipe")
             .toolbar{
                 Button {
                     viewModel.showingNewItemView = true
                 } label: {
                     Image(systemName: "plus")
-                        .foregroundColor(.black)
+                        .foregroundColor(.accentColor)
                 }
+            }
+            .sheet(isPresented: $viewModel.showingNewItemView){
+                NewRecipeView(newItemPresented: $viewModel.showingNewItemView)
             }
         }
         
@@ -44,6 +52,17 @@ struct RecipeView: View {
             Text("Hello")
         }
     }
+    
+    var gDict: [String: [GroceryListItem]] {
+        let categories = viewModel.retrieveDistinctCategory(items: items)
+        var dict: [String: [GroceryListItem]] = [:]
+        for cat in categories {
+            dict[cat] = items.filter({$0.category == cat})
+        }
+        return dict
+    }
+    
+    
 }
 
 struct RecipeView_Previews: PreviewProvider {

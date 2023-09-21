@@ -15,8 +15,8 @@ struct MainView: View {
             TabView {
                 GroceryListView(userId: viewModel.currentUserId)
                     .tabItem {(Label("List", systemImage: "checklist"))}
-//                RecipeView(userId: viewModel.currentUserId)
-//                    .tabItem {(Label("Recipe", systemImage: "newspaper"))}
+                RecipeView(userId: viewModel.currentUserId)
+                    .tabItem {(Label("Recipe", systemImage: "newspaper"))}
                 ProfileView()
                     .tabItem {(Label("Profile", systemImage: "person.circle"))}
             }
