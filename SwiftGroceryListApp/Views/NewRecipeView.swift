@@ -47,9 +47,7 @@ struct NewRecipeView: View {
                                 .font(.system(size: 10))
                             
                         }
-                        Section{
-                            bodyIngredientsListView
-                        }
+                        bodyIngredientsListView
                         GLButton(
                              title: "Save",
                             background: .accentColor){
@@ -78,21 +76,35 @@ struct NewRecipeView: View {
     }
     
     var bodyIngredientsListView: some View {
+        
             List{
-                ForEach(ingredientItems) { ingredient in
-                    RecipeIngredientView(item: ingredient)
-                        .swipeActions {
-                            Button("Delete") {
-                                viewModel.delete(id: ingredient.id)
-                            }
-                            .tint(.red)
+                ForEach(Array(rDict.keys).sorted(by: >), id: \.self) { category in
+                    Section(header: Text("\(category)")) {
+                        ForEach(rDict[category]!, id: \.self) { item in
+                            RecipeIngredientView(item: item)
+                                .swipeActions {
+                                    Button("Delete") {
+                                        viewModel.delete(id: item.id)
+                                    }
+                                    .tint(.red)
+                                }
                         }
-                        }
+                    }
+                }
+
             }
-            
-            
-                
     }
+    
+    var rDict: [String: [IngredientsDictionaryItem]] {
+        let categories = viewModel.retrieveDistinctCategory(items: ingredientItems)
+        var dict: [String: [IngredientsDictionaryItem]] = [:]
+        for cat in categories {
+            dict[cat] = ingredientItems.filter({$0.category == cat})
+        }
+        return dict
+    }
+    
+    
 }
 
 //struct NewRecipeView_Previews: PreviewProvider {

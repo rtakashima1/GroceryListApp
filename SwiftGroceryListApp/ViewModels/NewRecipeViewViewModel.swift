@@ -71,5 +71,12 @@ class NewRecipeViewViewModel: ObservableObject {
         }
         return true
     }
+    
+    func retrieveDistinctCategory(items: [IngredientsDictionaryItem]) -> [String] {
+        return Array(Set(
+            (items).compactMap{$0.category}))
+    }
+    
+    
 }
 
