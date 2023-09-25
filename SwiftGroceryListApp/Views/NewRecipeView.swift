@@ -17,11 +17,6 @@ struct NewRecipeView: View {
     let themes = ["Appetizer","Salad","Soup", "Entree", "Dessert", "Other"]
     let ingredientThemes = ["Veggie/Fruits", "Protein", "Dairy", "Other"]
     
-//    init(userId: String) {
-//        self._ingredientItems = FirestoreQuery(collectionPath: "users/\(userId)/dictionary")
-//        self._viewModel = StateObject(wrappedValue: NewRecipeViewViewModel(userId: userId))
-////        self._newItemPresented = newItemPresented
-//    }
      
     var body: some View {
         NavigationView{
@@ -50,6 +45,9 @@ struct NewRecipeView: View {
                                 .bold()
                             Text("If ingredients not shown, add it from the grocery list page")
                                 .font(.system(size: 10))
+                            
+                        }
+                        Section{
                             bodyIngredientsListView
                         }
                         GLButton(
@@ -80,18 +78,20 @@ struct NewRecipeView: View {
     }
     
     var bodyIngredientsListView: some View {
-        VStack {
-            ForEach(ingredientItems) { ingredient in
-                RecipeIngredientView(item: ingredient)
-                    .swipeActions {
-                        Button("Delete") {
-                            viewModel.delete(id: ingredient.id)
+            List{
+                ForEach(ingredientItems) { ingredient in
+                    RecipeIngredientView(item: ingredient)
+                        .swipeActions {
+                            Button("Delete") {
+                                viewModel.delete(id: ingredient.id)
+                            }
+                            .tint(.red)
                         }
-                        .tint(.red)
-                    }
-                    }
+                        }
+            }
             
-                }
+            
+                
     }
 }
 

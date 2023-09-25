@@ -30,7 +30,6 @@ struct RecipeView: View {
                     .edgesIgnoringSafeArea(.all)
                 VStack{
                     bodyListView
-//                    IngredientsListView
                 }
             }
             
@@ -53,16 +52,20 @@ struct RecipeView: View {
     
     var bodyListView: some View {
         VStack{
-            ForEach(recipeItems2) {recipe in
-                RecipeItemView(item: recipe)
-                    .swipeActions {
-                        Button("Delete") {
-                            viewModel.delete(id: recipe.id)
+            List{
+                ForEach(recipeItems2) {recipe in
+                    RecipeItemView(item: recipe)
+                        .swipeActions {
+                            Button("Delete") {
+                                viewModel.delete(id: recipe.id)
+                            }
+                            .tint(.red)
                         }
-                        .tint(.red)
-                    }
+                }
             }
+            
         }
+        .scrollContentBackground(.hidden)
     }
     
     var gDict: [String: [GroceryListItem]] {
