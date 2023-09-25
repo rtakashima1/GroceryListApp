@@ -14,49 +14,50 @@ struct NewItemView: View {
     let themes = ["Veggie/Fruits", "Protein", "Dairy/Egg", "Other"]
     
     var body: some View {
-        VStack{
-            Text("New Item")
-                .font(.system(size: 36))
-                .bold()
-                .padding(.top, 25)
-            Form {
-                // title
-                TextField("Item Title", text: $viewModel.title)
-                TextField("Category", text: $viewModel.category)
-                Picker("Choose Category", selection: $viewModel.category){
-                    ForEach(themes, id: \.self){
-                        Text($0)
+        ZStack{
+            Color("Color")
+                .edgesIgnoringSafeArea(.all)
+            VStack{
+                Text("New Item")
+                    .font(.system(size: 36))
+                    .bold()
+                    .padding(.top, 25)
+                Form {
+                    // title
+                    TextField("Item Title", text: $viewModel.title)
+                    TextField("Category", text: $viewModel.category)
+                    Picker("Choose Category", selection: $viewModel.category){
+                        ForEach(themes, id: \.self){
+                            Text($0)
+                        }
+                    }
+                    .pickerStyle(.wheel)
+                    // button
+                    GLButton(
+                         title: "Save",
+                        background: .accentColor){
+                            if viewModel.canSave {
+                                viewModel.save()
+                                newItemPresented = false
+                            } else {
+                                viewModel.showAlert = true
+                            }
                     }
                 }
-                .pickerStyle(.wheel)
-                // button
-                GLButton(
-                     title: "Save",
-                    background: .accentColor){
-                        if viewModel.canSave {
-                            viewModel.save()
-                            newItemPresented = false
-                        } else {
-                            viewModel.showAlert = true
-                        }
+                .padding()
+                .alert(isPresented: $viewModel.showAlert){
+                    Alert(title: Text("Error"), message: Text("Please fill in all fields"))
                 }
             }
-            .padding()
-            .alert(isPresented: $viewModel.showAlert){
-                Alert(title: Text("Error"), message: Text("Please fill in all fields"))
-            }
+            .scrollContentBackground(.hidden)
+                
         }
-        .scrollContentBackground(.hidden)
-        .background(
-            
-            Color(red: 243/255, green: 244/255, blue: 231/255)
-            
 //        Image("Untitled design")
 //            .resizable()
 //            .edgesIgnoringSafeArea(.all)
 //            .overlay(Color.white.opacity(0.65))
 //            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-        )
+        
     }
 }
 

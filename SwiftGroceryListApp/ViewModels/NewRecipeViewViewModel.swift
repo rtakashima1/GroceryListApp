@@ -13,12 +13,28 @@ class NewRecipeViewViewModel: ObservableObject {
     @Published var title = ""
     @Published var category = ""
     @Published var ingredients = [GroceryListItem]()
+    @Published var ingredientItems = [IngredientsDictionaryItem]()
     @Published var ingredientsList = ""
     @Published var showAlert = false
     
-//    var commonGroceryDict = ["Veggies/Fruit": "Apples", "Veggies/Fruit": "Bananas" ]
+    @Published var showingNewItemView = false
+    private let userId: String
     
-    init() {}
+    
+    init(userId: String) {
+        self.userId = userId
+    }
+    
+    func delete(id: String) {
+        let db = Firestore.firestore()
+        
+        db.collection("users")
+            .document(userId)
+            .collection("dictionary")
+            .document(id)
+            .delete()
+        // we don't need call back because Firestore Query in View is listening to live updates
+    }
     
     func save() {
         guard canSave else {

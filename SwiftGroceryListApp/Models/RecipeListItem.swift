@@ -15,4 +15,8 @@ struct RecipeListItem: Codable,Hashable, Identifiable {
     let ingredientsList: String
     var isDone: Bool
     
+    mutating func setDone(_ state: Bool) {
+        isDone = state
+    }
+    
 }

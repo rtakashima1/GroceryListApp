@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecipeIngredientView: View {
     @StateObject var viewModel = RecipeIngredientViewViewModel()
-    let item: GroceryListItem
+    let item: IngredientsDictionaryItem
     
     var body: some View {
         HStack {
@@ -24,7 +24,7 @@ struct RecipeIngredientView: View {
                 viewModel.toggleIsDone(item: item)
             } label: {
                 Image(systemName: item.isDone ?
-                      "checkmark.circle.fill" : "circle")
+                      "checkmark.circle.fill" : "circle" )
                 .resizable()
                 .frame(width: 20, height: 20)
                 .foregroundColor(.accentColor)
@@ -34,8 +34,11 @@ struct RecipeIngredientView: View {
     }
 }
 
-struct RecipeIngredientsView_Preview: PreviewProvider {
+struct RecipeIngredientView_Preview: PreviewProvider {
     static var previews: some View {
-        GroceryItemView(item: .init(id: "123", title: "Oat",category: "Dairy/Egg", createdDate: Date().timeIntervalSince1970, isDone: false))
+        RecipeIngredientView(item: .init(id: "333",
+                             title: "Coffee",
+                             category: "Protein",
+                             isDone: false))
     }
 }

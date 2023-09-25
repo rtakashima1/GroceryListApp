@@ -12,7 +12,7 @@ import FirebaseFirestore
 class RecipeIngredientViewViewModel: ObservableObject {
     init() {}
     
-    func toggleIsDone(item: GroceryListItem) {
+    func toggleIsDone(item: IngredientsDictionaryItem) {
         var itemCopy = item
         itemCopy.setDone(!item.isDone)
         
@@ -22,7 +22,7 @@ class RecipeIngredientViewViewModel: ObservableObject {
         let db = Firestore.firestore()
         db.collection("users")
             .document(uid)
-            .collection("grocery")
+            .collection("dictionary")
             .document(itemCopy.id)
             .setData(itemCopy.asDictionary())
         
