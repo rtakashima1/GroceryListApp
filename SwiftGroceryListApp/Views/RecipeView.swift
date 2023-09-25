@@ -51,28 +51,45 @@ struct RecipeView: View {
     }
     
     var bodyListView: some View {
-        VStack{
-            List{
-                ForEach(recipeItems2) {recipe in
-                    RecipeItemView(item: recipe)
-                        .swipeActions {
-                            Button("Delete") {
-                                viewModel.delete(id: recipe.id)
+        
+        List{
+            ForEach(Array(recipeDict.keys).sorted(by: >), id: \.self) { category in
+                Section(header: Text("\(category)")) {
+                    ForEach(recipeDict[category]!, id: \.self) { item in
+                        RecipeItemView(item: item)
+                            .swipeActions {
+                                Button("Delete") {
+                                    viewModel.delete(id: item.id)
+                                }
+                                .tint(.red)
                             }
-                            .tint(.red)
-                        }
+                    }
                 }
             }
-            
+
         }
+//        VStack{
+//            List{
+//                ForEach(recipeItems2) {recipe in
+//                    RecipeItemView(item: recipe)
+//                        .swipeActions {
+//                            Button("Delete") {
+//                                viewModel.delete(id: recipe.id)
+//                            }
+//                            .tint(.red)
+//                        }
+//                }
+//            }
+//
+//        }
         .scrollContentBackground(.hidden)
     }
     
-    var gDict: [String: [GroceryListItem]] {
-        let categories = viewModel.retrieveDistinctCategory(items: items)
-        var dict: [String: [GroceryListItem]] = [:]
+    var recipeDict: [String: [RecipeListItem]] {
+        let categories = viewModel.retrieveDistinctCategory(items: recipeItems2)
+        var dict: [String: [RecipeListItem]] = [:]
         for cat in categories {
-            dict[cat] = items.filter({$0.category == cat})
+            dict[cat] = recipeItems2.filter({$0.category == cat})
         }
         return dict
     }

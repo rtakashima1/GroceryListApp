@@ -31,7 +31,7 @@ class RecipeViewViewModel: ObservableObject {
         // we don't need call back because Firestore Query in View is listening to live updates
     }
     
-    func retrieveDistinctCategory(items: [GroceryListItem]) -> [String] {
+    func retrieveDistinctCategory(items: [RecipeListItem]) -> [String] {
         return Array(Set(
             (items).compactMap{$0.category}))
     }
